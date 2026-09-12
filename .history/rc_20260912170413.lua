@@ -214,7 +214,7 @@ awful.screen.connect_for_each_screen(function(s)
     --awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
     local names={"󰭹 Chat", " Internet", " Terminal", " Art", "󰓓 Games", " Work", " Other", "^_^", "XD" } -- todo improve this
     local l = awful.layout.suit
-    local layouts = {l.tile,l.tile,l.tile,l.tile,l.tile,l.tile,l.tile,l.tile,l.tile } -- todo wtf?
+    local layouts = {l.tile,l.tile,l.tile,l.tile,l.tile,l.tile,l.tile,l.tile,l.tile }
     awful.tag(names,s,layouts)
 
 -- Create a promptbox for each screen

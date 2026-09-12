@@ -53,7 +53,7 @@ do
         in_error = true
 
         naughty.notify({ preset = naughty.config.presets.critical,
-                         title = "An error occurred",
+                         title = "An error occured",
                          text = tostring(err) })
         in_error = false
     end)
@@ -61,14 +61,12 @@ end
 -- }}}
 
 -- {{{ Variable definitions
-
 -- Themes define colours, icons, font and wallpapers.
--- todo change theme colors to maybe Dracula? Change to dyslexia friendly font and choose new wallpaper, a minimalist or repeating tiling one
 beautiful.init("~/.config/awesome/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "x-terminal-emulator" -- todo change this shit to a different terminal if possible without breaking stuff, idk
-editor = os.getenv("EDITOR") or "nano" -- todo nano is fine, if possible maybe consider mousepad?
+terminal = "x-terminal-emulator"
+editor = os.getenv("EDITOR") or "nano"
 editor_cmd = terminal .. " -e " .. editor
 
 -- Default modkey.
@@ -103,23 +101,21 @@ awful.layout.layouts = {
 -- Create a launcher widget and a main menu
 myawesomemenu = {
    { "Hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
-   { "Manual", terminal .. " -e man awesome" }, -- todo maybe change to tealdeer for tldr manual pages instead
-   { "Edit config", editor_cmd .. " " .. awesome.conffile }, -- todo maybe change editor idk?
-   { "Restart", awesome.restart }, -- because fuck you that's why (this comment is a joke, i'm bored lol')
+   { "Manual", terminal .. " -e man awesome" },
+   { "Edit config", editor_cmd .. " " .. awesome.conffile },
+   { "Restart", awesome.restart },
    { "Quit", function() awesome.quit() end },
 }
 beautiful.menu_height=20
 beautiful.menu_width=180
--- todo change colors down below
 beautiful.menu_bg_normal="#323027"
 beautiful.menu_bg_focus="#746C48"
 beautiful.menu_fg_focus="#323027"
 --beautiful.menu_fg_normal="#"
-local menu_awesome = { "Awesome", myawesomemenu, beautiful.awesome_icon } -- todo change icons maybe?
-local menu_terminal = { "Open Terminal", terminal } -- make the wildcard/variable for terminal set to a real world terminal of my preferred choice based on my own taste
+local menu_awesome = { "Awesome", myawesomemenu, beautiful.awesome_icon }
+local menu_terminal = { "Open Terminal", terminal }
 --local menu_browser = { "Browser", firefox }
 --local menu_files = { "Files", nautilus }
--- todo i hate nautilus, change to Dolphin maybe
 
 if has_fdo then
     mymainmenu = freedesktop.menu.build({
@@ -130,7 +126,7 @@ else
     mymainmenu = awful.menu({
         items = {
                   menu_awesome,
-                  { "Debian", debian.menu.Debian_menu.Debian }, --todo  change to Mint or other OS distro of choice
+                  { "Debian", debian.menu.Debian_menu.Debian },
                   menu_terminal,
                 }
     })
@@ -191,7 +187,7 @@ local tasklist_buttons = gears.table.join(
                                               awful.client.focus.byidx(-1)
                                           end))
 
-local function set_wallpaper(s) -- todo change wallpaper settings
+local function set_wallpaper(s)
     -- Wallpaper
     if beautiful.wallpaper then
         local wallpaper = beautiful.wallpaper
@@ -212,9 +208,9 @@ awful.screen.connect_for_each_screen(function(s)
 
     -- Each screen has its own tag table.
     --awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
-    local names={"󰭹 Chat", " Internet", " Terminal", " Art", "󰓓 Games", " Work", " Other", "^_^", "XD" } -- todo improve this
+    local names={"󰭹 Chat", " Internet", " Terminal", " Art", "󰓓 Games", " Work", " Other", "^_^", "XD" }
     local l = awful.layout.suit
-    local layouts = {l.tile,l.tile,l.tile,l.tile,l.tile,l.tile,l.tile,l.tile,l.tile } -- todo wtf?
+    local layouts = {l.tile,l.tile,l.tile,l.tile,l.tile,l.tile,l.tile,l.tile,l.tile }
     awful.tag(names,s,layouts)
 
 -- Create a promptbox for each screen

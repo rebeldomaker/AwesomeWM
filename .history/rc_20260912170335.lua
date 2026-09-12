@@ -191,7 +191,7 @@ local tasklist_buttons = gears.table.join(
                                               awful.client.focus.byidx(-1)
                                           end))
 
-local function set_wallpaper(s) -- todo change wallpaper settings
+local function set_wallpaper(s) -- todo 
     -- Wallpaper
     if beautiful.wallpaper then
         local wallpaper = beautiful.wallpaper
@@ -212,9 +212,9 @@ awful.screen.connect_for_each_screen(function(s)
 
     -- Each screen has its own tag table.
     --awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
-    local names={"󰭹 Chat", " Internet", " Terminal", " Art", "󰓓 Games", " Work", " Other", "^_^", "XD" } -- todo improve this
+    local names={"󰭹 Chat", " Internet", " Terminal", " Art", "󰓓 Games", " Work", " Other", "^_^", "XD" }
     local l = awful.layout.suit
-    local layouts = {l.tile,l.tile,l.tile,l.tile,l.tile,l.tile,l.tile,l.tile,l.tile } -- todo wtf?
+    local layouts = {l.tile,l.tile,l.tile,l.tile,l.tile,l.tile,l.tile,l.tile,l.tile }
     awful.tag(names,s,layouts)
 
 -- Create a promptbox for each screen

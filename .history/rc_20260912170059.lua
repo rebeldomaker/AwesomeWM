@@ -115,11 +115,10 @@ beautiful.menu_bg_normal="#323027"
 beautiful.menu_bg_focus="#746C48"
 beautiful.menu_fg_focus="#323027"
 --beautiful.menu_fg_normal="#"
-local menu_awesome = { "Awesome", myawesomemenu, beautiful.awesome_icon } -- todo change icons maybe?
-local menu_terminal = { "Open Terminal", terminal } -- make the wildcard/variable for terminal set to a real world terminal of my preferred choice based on my own taste
+local menu_awesome = { "Awesome", myawesomemenu, beautiful.awesome_icon } -- todo change icons maybe
+local menu_terminal = { "Open Terminal", terminal }
 --local menu_browser = { "Browser", firefox }
 --local menu_files = { "Files", nautilus }
--- todo i hate nautilus, change to Dolphin maybe
 
 if has_fdo then
     mymainmenu = freedesktop.menu.build({
@@ -130,7 +129,7 @@ else
     mymainmenu = awful.menu({
         items = {
                   menu_awesome,
-                  { "Debian", debian.menu.Debian_menu.Debian }, --todo  change to Mint or other OS distro of choice
+                  { "Debian", debian.menu.Debian_menu.Debian },
                   menu_terminal,
                 }
     })
@@ -191,7 +190,7 @@ local tasklist_buttons = gears.table.join(
                                               awful.client.focus.byidx(-1)
                                           end))
 
-local function set_wallpaper(s) -- todo change wallpaper settings
+local function set_wallpaper(s)
     -- Wallpaper
     if beautiful.wallpaper then
         local wallpaper = beautiful.wallpaper
@@ -212,9 +211,9 @@ awful.screen.connect_for_each_screen(function(s)
 
     -- Each screen has its own tag table.
     --awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
-    local names={"󰭹 Chat", " Internet", " Terminal", " Art", "󰓓 Games", " Work", " Other", "^_^", "XD" } -- todo improve this
+    local names={"󰭹 Chat", " Internet", " Terminal", " Art", "󰓓 Games", " Work", " Other", "^_^", "XD" }
     local l = awful.layout.suit
-    local layouts = {l.tile,l.tile,l.tile,l.tile,l.tile,l.tile,l.tile,l.tile,l.tile } -- todo wtf?
+    local layouts = {l.tile,l.tile,l.tile,l.tile,l.tile,l.tile,l.tile,l.tile,l.tile }
     awful.tag(names,s,layouts)
 
 -- Create a promptbox for each screen
