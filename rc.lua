@@ -6,34 +6,38 @@ pcall(require, "luarocks.loader")
 local gears = require("gears")
 local awful = require("awful")
 require("awful.autofocus")
+
 -- Widget and layout library
 local wibox = require("wibox")
+
 -- Theme handling library
 local beautiful = require("beautiful")
+
 -- Notification library
 local naughty = require("naughty")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
+
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 
 -- Load Debian menu entries
-local debian = require("debian.menu")
+local debian = require("debian.menu") -- not using debian anymore, reconsider changing this to match Linux Mint, Arch, NixOS, or any other OS distro of own choice
 local has_fdo, freedesktop = pcall(require, "freedesktop")
 
--- {{{ Error handling
--- Check if awesome encountered an error during startup and fell back to
--- another config (This code will only ever execute for the fallback config)
+-- {{{ ERROR handling!!!
+-- Check if awesome encountered an error during startup and fell back to another config 
+-- (This code will only ever execute for the fallback config)
 if awesome.startup_errors then
     naughty.notify({ preset = naughty.config.presets.critical,
-                     title = "Oops, there were errors during startup!",
+                     title = "Errors encountered during startup",
                      text = awesome.startup_errors })
 end
 
--- Handle runtime errors after startup
+-- Handle runtime ERRORS after startup
 do
-    local in_error = false
+    local in_error = false -- todo research why = instead of ==
     awesome.connect_signal("debug::error", function (err)
         -- Make sure we don't go into an endless error loop
         if in_error then return end
